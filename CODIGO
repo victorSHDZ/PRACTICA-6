@@ -1,0 +1,85 @@
+#VICTOR ALEJANDRO SALAZAR HERNANDEZ
+#PRACTICA 6
+
+import cv2
+import numpy as np
+
+cap = cv2.VideoCapture(0)
+
+while True:
+    _, frame = cap.read()
+    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+
+    
+    #PARA EL ROJO
+    #hsv hue sat value
+    lower_red = np.array([151,150,150])
+    upper_red = np.array([182,255,255])
+
+    mask = cv2.inRange(hsv, lower_red, upper_red)
+    res = cv2.bitwise_and(frame, frame, mask = mask)
+
+    cv2.imshow('frame', frame)
+    cv2.imshow('mask', mask)
+    cv2.imshow('res', res)
+
+    k = cv2.waitKey(5) & 0xFF
+    if k == 27:
+        break
+    
+'''#Para el verde
+    #hsv hue sat value
+    lower_green = np.array([40,150,150])
+    upper_green = np.array([70,255,255])
+
+    mask = cv2.inRange(hsv, lower_green, upper_green)
+    res = cv2.bitwise_and(frame, frame, mask = mask)
+
+    cv2.imshow('frame', frame)
+    cv2.imshow('mask', mask)
+    cv2.imshow('res', res)
+
+    k = cv2.waitKey(5) & 0xFF
+    if k == 27:
+        break '''
+    
+    
+'''#Para el azul
+    #hsv hue sat value
+    lower_blue = np.array([91,150,150])
+    upper_blue = np.array([139,255,255])
+
+    mask = cv2.inRange(hsv, lower_blue, upper_blue)
+    res = cv2.bitwise_and(frame, frame, mask = mask)
+
+    cv2.imshow('frame', frame)
+    cv2.imshow('mask', mask)
+    cv2.imshow('res', res)
+
+    k = cv2.waitKey(5) & 0xFF
+    if k == 27:
+        break    '''
+
+
+    
+'''#Para el amarillo
+    #hsv hue sat value
+    lower_ama = np.array([31,150,150])
+    upper_ama = np.array([39,255,255])
+
+    mask = cv2.inRange(hsv, lower_ama, upper_ama)
+    res = cv2.bitwise_and(frame, frame, mask = mask)
+
+    cv2.imshow('frame', frame)
+    cv2.imshow('mask', mask)
+    cv2.imshow('res', res)
+
+    k = cv2.waitKey(5) & 0xFF
+    if k == 27:
+        break
+    '''
+
+
+
+cv2.destroyAllWindows()
+cap.release()
